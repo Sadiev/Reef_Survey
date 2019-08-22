@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Model
 {
-
-
     public class Fish
     {
         public int ID { get; set; }
