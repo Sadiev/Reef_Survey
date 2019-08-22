@@ -19,14 +19,14 @@ namespace Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server = (localdb)\mssqllocaldb; Database = Blogging; Trusted_Connection = True;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FishDump;Trusted_Connection=True;");
         }
     }
 
 
     public class Fish
     {
-        public int FishID { get; set; }
+        public int FishId { get; set; }
         public string ScientificName { get; set; }
         public string CommonName { get; set; }
         public int FishCount { get; set; }
@@ -134,7 +134,6 @@ namespace Model
 
     }
 
-
     public class Location
     {
         public int ID { get; set; }
@@ -145,13 +144,5 @@ namespace Model
         public Fish Fish { get; set; }
 
     }
-
-
-
-
-
-
-
-
 }
 
