@@ -26,68 +26,89 @@ namespace Model
 
     public class Fish
     {
-        public int ID { get; set; }
-        public string scientificName { get; set; }
-        public string commonName { get; set; }
-        public int fishCount { get; set; }
-        public double fishLength { get; set; }
-        public int trophicID { get; set; }
-        public int managmentID { get; set; }
-        public int familyID { get; set; }
-        public int secTypeID { get; set; }
-        public int batchCodeID { get; set; }
-        public int surveyID { get; set; }
-        public int regionID { get; set; }
-        public int studyAreaID { get; set; }
-        public int locationID { get; set; }
+        public int FishID { get; set; }
+        public string ScientificName { get; set; }
+        public string CommonName { get; set; }
+        public int FishCount { get; set; }
+        public double FishLength { get; set; }
+        public int TrophicID { get; set; }
+        public int ManagmentID { get; set; }
+        public int FamilyID { get; set; }
+        public int SecTypeID { get; set; }
+        public int BatchCodeID { get; set; }
+        public int SurveyID { get; set; }
+        public int RegionID { get; set; }
+        public int StudyAreaID { get; set; }
+        public int LocationID { get; set; }
 
     }
 
     public class Trophic
     {
         public int ID { get; set; }
-        public int trophic { get; set; }
-      
+        public string TrophicName { get; set; }
+
+
+        public int FishId { get; set; }
+        public Fish Fish { get; set; }
+
 
     }
 
     public class BatchCode
     {
         public int ID { get; set; }
-        public int batchCode { get; set; }
+        public string BatchCodeNumber { get; set; }
 
+
+        public int FishId { get; set; }
+        public Fish Fish { get; set; }
 
     }
 
     public class Survey
     {
         public int ID { get; set; }
-        public string surveyDate { get; set; }
-        public string surveyIndex { get; set; }
+        public string SurveyDate { get; set; }
+        public string SurveyIndex { get; set; }
 
+
+        public int FishId { get; set; }
+        public Fish Fish { get; set; }
     }
 
     public class Region
     {
         public int ID { get; set; }
-        public string regionName { get; set; }
-        public string subRegion { get; set; }
+        public string RegionName { get; set; }
+        public string SubRegion { get; set; }
+
+
+        public int FishId { get; set; }
+        public Fish Fish { get; set; }
 
     }
 
 
-    public class Managment
+    public class Managment 
     {
         public int ID { get; set; }
-        public string managment  { get; set; }
-      
+        public string ManagmentName  { get; set; }
+
+
+        public int FishId { get; set; }
+        public Fish Fish { get; set; }
+
 
     }
 
     public class Family
     {
         public int ID { get; set; }
-        public string name { get; set; }
+        public string FamilyName { get; set; }
+
+        public int FishId { get; set; }
+        public Fish Fish { get; set; }
 
     }
 
@@ -95,7 +116,10 @@ namespace Model
     public class StructType
     {
         public int ID { get; set; }
-        public string structureType { get; set; }
+        public string StructureType { get; set; }
+
+        public int FishId { get; set; }
+        public Fish Fish { get; set; }
 
     }
 
@@ -103,7 +127,10 @@ namespace Model
     public class StudyArea
     {
         public int ID { get; set; }
-        public string studyAr { get; set; }
+        public string StudyAreaName { get; set; }
+
+        public int FishId { get; set; }
+        public Fish Fish { get; set; }
 
     }
 
@@ -111,8 +138,11 @@ namespace Model
     public class Location
     {
         public int ID { get; set; }
-        public double latitude { get; set; }
-        public double longitude { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
+
+        public int FishId { get; set; }
+        public Fish Fish { get; set; }
 
     }
 
