@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReefSurvey", "ReefSurvey\ReefSurvey.csproj", "{9E43C32A-F34D-444E-B7F5-06A62BC06BD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{06C753E7-85BD-44F5-AD4D-72CECBADC9F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{06C753E7-85BD-44F5-AD4D-72CECBADC9F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "Parser\Parser.csproj", "{B3681BB6-0D33-4E5B-98E2-E9A34C00E702}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{06C753E7-85BD-44F5-AD4D-72CECBADC9F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C753E7-85BD-44F5-AD4D-72CECBADC9F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06C753E7-85BD-44F5-AD4D-72CECBADC9F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3681BB6-0D33-4E5B-98E2-E9A34C00E702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3681BB6-0D33-4E5B-98E2-E9A34C00E702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3681BB6-0D33-4E5B-98E2-E9A34C00E702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3681BB6-0D33-4E5B-98E2-E9A34C00E702}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parser;
+using System;
 
 namespace ReefSurvey
 {
@@ -7,6 +8,8 @@ namespace ReefSurvey
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            CSV csv = new CSV();
+            csv.ReadCSV();
         }
     }
 }
