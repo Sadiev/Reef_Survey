@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Data.Odbc;
-using System.Data.OleDb;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Data.Common;
 using Model;
@@ -44,27 +41,75 @@ namespace Parser
 
             using (var db = new FishDump())
             {
-                foreach (var item in values.Select(m => new { m.Region, m.SubRegion }).Distinct().ToList())
+
+                foreach (var item in values.Select(m => new { m.Region, m.SubRegion }).Distinct().ToList())//Region
                 {
-                    db.Regions.Add(new Region { RegionName =item.Region, SubRegion = item.SubRegion });
+                    db.Regions.Add(new Region { RegionName = item.Region, SubRegion = item.SubRegion });
                 }
                 var count = db.SaveChanges();
                 Console.WriteLine("{0} records saved to database", count);
 
-                foreach (var item in values.Select(m => new { m.Trophic}).Distinct().ToList())
+                foreach (var item in values.Select(m => new { m.Trophic }).Distinct().ToList())//Trophic
                 {
                     db.Trophics.Add(new Trophic { TrophicName = item.Trophic });
                 }
                 count = db.SaveChanges();
                 Console.WriteLine("{0} records saved to database", count);
 
-                foreach (var item in values.Select(m => new { m.BatchCode }).Distinct().ToList())
+                foreach (var item in values.Select(m => new { m.BatchCode }).Distinct().ToList())//BatchCode
                 {
                     db.BatchCodes.Add(new BatchCode { BatchCodeNumber = item.BatchCode });
                 }
                 count = db.SaveChanges();
                 Console.WriteLine("{0} records saved to database", count);
 
+                foreach (var item in values.Select(m => new { m.SurveyDate, m.SurveyIndex }).Distinct().ToList())//Survay
+                {
+                    db.Surveys.Add(new Survey { SurveyDate = item.SurveyDate, SurveyIndex = item.SurveyIndex });
+                }
+                count = db.SaveChanges();
+
+                foreach (var item in values.Select(m => new { m.Management }).Distinct().ToList())//Managment
+                {
+                    db.Managments.Add(new Managment { ManagmentName = item.Management });
+                }
+                count = db.SaveChanges();
+                Console.WriteLine("{0} records saved to database", count);
+
+                foreach (var item in values.Select(m => new { m.Family }).Distinct().ToList())//Family
+                {
+                    db.Families.Add(new Family { FamilyName = item.Family });
+                }
+                count = db.SaveChanges();
+                Console.WriteLine("{0} records saved to database", count);
+
+                //foreach (var item in values.Select(m => new { m.StructureType }).Distinct().ToList())//StructureType
+                //{
+                //    db.StructTypes.Add(new StructType { StructureType = item.StructureType });
+                //}
+                //var count = db.SaveChanges();
+                //Console.WriteLine("{0} records saved to database", count);
+
+                foreach (var item in values.Select(m => new { m.StudyArea }).Distinct().ToList())//StudyArea
+                {
+                    db.StudyAreas.Add(new StudyArea { StudyAreaName = item.StudyArea });
+                }
+                count = db.SaveChanges();
+                Console.WriteLine("{0} records saved to database", count);
+
+                foreach (var item in values.Select(m => new { m.Latitude, m.Longitude }).Distinct().ToList())//location
+                {
+                    db.Locations.Add(new Location { Longitude = item.Longitude, Latitude=item.Latitude });
+                }
+                count = db.SaveChanges();
+                Console.WriteLine("{0} records saved to database", count);
+
+                foreach (var item in values)//fish
+                {
+                    db.Fishes.Add(new Fish { ScientificName = item.ScientificName, CommonName=item.CommonName, FishCount=item.FishCount, FishLength=item.FishLength});
+                }
+                count = db.SaveChanges();
+                Console.WriteLine("{0} records saved to database", count);
 
                 Console.WriteLine();
                 Console.WriteLine("All blogs in database:");
@@ -98,8 +143,8 @@ namespace Parser
         public string ScientificName;
         public string CommonName;
         public string Trophic;
-        public string FishLength;
-        public string FishCount;
+        public double FishLength;
+        public int FishCount;
 
         //decimal Low;
         //decimal Close;
@@ -125,8 +170,8 @@ namespace Parser
             dailyValues.ScientificName = values[12];
             dailyValues.CommonName = values[13];
             dailyValues.Trophic = values[14];
-            dailyValues.FishLength= values[15];
-            dailyValues.FishCount= values[16];
+            dailyValues.FishLength = Convert.ToDouble(values[15]);
+            dailyValues.FishCount = Convert.ToInt32(values[16]);
             return dailyValues;
         }
     }
